@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\stockmsft.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\stockmsft.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Syncfusion.SfChart.WPF" Version="28.2.6" />
+  </ItemGroup>
+
+</Project>
