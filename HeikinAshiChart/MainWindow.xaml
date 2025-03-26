@@ -115,7 +115,7 @@
                         </local:TrackballExt>
                     </chart:SfChart.Behaviors>
 
-                    <local:HeikinAshiSeries HeikinAshiItemsSource="{Binding StockData}" XBindingPath="Date" Open="Open" High="High" Low="Low" Close="Close" BullFillColor="#13FFAA" BearFillColor="#6F5DE5" ShowTrackballInfo="True" TrackBallLabelTemplate="{StaticResource trackballLabelTemplate}">
+                    <local:HeikinAshiSeries HeikinAshiItemsSource="{Binding MsftData}" XBindingPath="Date" Open="Open" High="High" Low="Low" Close="Close" BullFillColor="#13FFAA" BearFillColor="#6F5DE5" ShowTrackballInfo="True" TrackBallLabelTemplate="{StaticResource trackballLabelTemplate}">
                     </local:HeikinAshiSeries>
 
                 </chart:SfChart>
@@ -145,7 +145,7 @@
                         <local:TrackballExt x:Name="trackball2" LabelHorizontalAlignment="Far" LabelVerticalAlignment="Center" LineStyle="{StaticResource lineStyle}"/>
                     </chart:SfChart.Behaviors>
 
-                    <chart:CandleSeries ItemsSource="{Binding StockData}" XBindingPath="Date" Open="Open" High="High" Low="Low" Close="Close" ShowTrackballInfo="True" BullFillColor="#13FFAA" BearFillColor="#6F5DE5" TrackBallLabelTemplate="{StaticResource trackballLabelTemplate}"/>
+                    <chart:CandleSeries ItemsSource="{Binding MsftData}" XBindingPath="Date" Open="Open" High="High" Low="Low" Close="Close" ShowTrackballInfo="True" BullFillColor="#13FFAA" BearFillColor="#6F5DE5" TrackBallLabelTemplate="{StaticResource trackballLabelTemplate}"/>
                 </chart:SfChart>
             </Grid>
         </Border>

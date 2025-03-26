@@ -7,11 +7,11 @@ namespace HeikinAshiChart
 {
     public class ViewModel
     {
-        public ObservableCollection<CandleData> StockData { get; set; }
+        public ObservableCollection<StockData> MsftData { get; set; }
 
         public ViewModel()
         {
-            StockData = [];
+            MsftData = [];
             ReadCSV("HeikinAshiChart.Resources.stockmsft.csv");
         }
 
@@ -45,7 +45,7 @@ namespace HeikinAshiChart
                     var high = Convert.ToDouble(data[2].Trim('"'));
                     var low = Convert.ToDouble(data[3].Trim('"'));
                     var close = Convert.ToDouble(data[4].Trim('"'));
-                    StockData.Add(new CandleData(date, open, high, low, close));
+                    MsftData.Add(new StockData(date, open, high, low, close));
                 }
             }
         }

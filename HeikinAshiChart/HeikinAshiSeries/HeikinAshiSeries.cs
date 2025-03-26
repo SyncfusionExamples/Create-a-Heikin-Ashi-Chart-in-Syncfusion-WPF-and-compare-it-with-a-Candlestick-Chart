@@ -7,7 +7,7 @@ namespace HeikinAshiChart
 {
     public class HeikinAshiSeries : CandleSeries
     {
-        private ObservableCollection<CandleData> _previousCollection;
+        private ObservableCollection<StockData> _previousCollection;
 
         public HeikinAshiSeries()
         {
@@ -17,20 +17,26 @@ namespace HeikinAshiChart
         public static readonly DependencyProperty HeikinAshiItemsSourceProperty =
             DependencyProperty.Register(
                 nameof(HeikinAshiItemsSource),
-                typeof(ObservableCollection<CandleData>),
+                typeof(ObservableCollection<StockData>),
                 typeof(HeikinAshiSeries),
                 new PropertyMetadata(null, OnHeikinAshiItemsSourceChanged));
+
+        public ObservableCollection<StockData> HeikinAshiItemsSource
+        {
+            get { return (ObservableCollection<StockData>)GetValue(HeikinAshiItemsSourceProperty); }
+            set { SetValue(HeikinAshiItemsSourceProperty, value); }
+        }
 
         private static void OnHeikinAshiItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is HeikinAshiSeries series)
             {
-                if (e.OldValue is ObservableCollection<CandleData> oldCollection)
+                if (e.OldValue is ObservableCollection<StockData> oldCollection)
                 {
                     series.UnbindNotifications(oldCollection);
                 }
 
-                if (e.NewValue is ObservableCollection<CandleData> newCollection)
+                if (e.NewValue is ObservableCollection<StockData> newCollection)
                 {
                     series.CalculateHeikinAshi(newCollection);
                     series.BindNotifications(newCollection);
@@ -38,7 +44,7 @@ namespace HeikinAshiChart
             }
         }
 
-        private void BindNotifications(ObservableCollection<CandleData> collection)
+        private void BindNotifications(ObservableCollection<StockData> collection)
         {
             _previousCollection = collection;
             collection.CollectionChanged += HeikinAshiItemsSource_CollectionChanged; ;
@@ -46,13 +52,13 @@ namespace HeikinAshiChart
 
         private void HeikinAshiItemsSource_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
         {
-            if (sender is ObservableCollection<CandleData> newCollection)
+            if (sender is ObservableCollection<StockData> newCollection)
             {
                 CalculateHeikinAshi(newCollection);
             }
         }
 
-        private void UnbindNotifications(ObservableCollection<CandleData> collection)
+        private void UnbindNotifications(ObservableCollection<StockData> collection)
         {
             collection.CollectionChanged -= HeikinAshiItemsSource_CollectionChanged;
 
@@ -60,17 +66,11 @@ namespace HeikinAshiChart
             {
                 _previousCollection = null;
             }
-        }
+        }    
 
-        public ObservableCollection<CandleData> HeikinAshiItemsSource
+        private void CalculateHeikinAshi(ObservableCollection<StockData> collection)
         {
-            get { return (ObservableCollection<CandleData>)GetValue(HeikinAshiItemsSourceProperty); }
-            set { SetValue(HeikinAshiItemsSourceProperty, value); }
-        }
-
-        private void CalculateHeikinAshi(ObservableCollection<CandleData> collection)
-        {
-            var heikinAshiData = new ObservableCollection<CandleData>();
+            var heikinAshiData = new ObservableCollection<StockData>();
 
             if (collection.Count == 0)
             {
@@ -89,7 +89,7 @@ namespace HeikinAshiChart
                 double high = Math.Max(currentCandle.High, Math.Max(open, close));
                 double low = Math.Min(currentCandle.Low, Math.Min(open, close));
 
-                heikinAshiData.Add(new CandleData { Date = currentCandle.Date, Open = open, High = high, Low = low, Close = close });
+                heikinAshiData.Add(new StockData { Date = currentCandle.Date, Open = open, High = high, Low = low, Close = close });
                 prevClose = close;
                 prevOpen = open;
             }
