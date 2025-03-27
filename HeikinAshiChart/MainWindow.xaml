@@ -9,12 +9,16 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Grid>
+        <Grid.DataContext>
+            <local:ViewModel/>
+        </Grid.DataContext>
+
         <Border Margin="10" CornerRadius="10" BorderBrush="#060D00" BorderThickness="10">
             <Grid Background="#060D00">
                 <Grid.Resources>
                     <local:ValueFormatConverter x:Key="valueConverter"/>
                     <DataTemplate x:Key="trackballLabelTemplate">
-                        <Border Background="White" Padding="10" BorderThickness="5" CornerRadius="5" BorderBrush="Gray">
+                        <Border Background="White" Padding="8" BorderThickness="3" CornerRadius="5" BorderBrush="Gray">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
@@ -65,10 +69,6 @@
                     <RowDefinition Height="4.5*"/>
                 </Grid.RowDefinitions>
 
-                <Grid.DataContext>
-                    <local:ViewModel/>
-                </Grid.DataContext>
-
                 <chart:SfChart Grid.Row="0" x:Name="heikinAshiChart" MouseMove="heikinAshiChart_MouseMove" HorizontalHeaderAlignment="Stretch" VerticalHeaderAlignment="Stretch">
 
                     <chart:SfChart.Header>
@@ -94,7 +94,7 @@
                     <chart:SfChart.PrimaryAxis>
                         <chart:DateTimeCategoryAxis LabelFormat="dd-MMM" ShowGridLines="False" EdgeLabelsDrawingMode="Shift">
                             <chart:DateTimeCategoryAxis.LabelStyle>
-                                <chart:LabelStyle Foreground="White"/>
+                                <chart:LabelStyle Foreground="White" FontSize="12"/>
                             </chart:DateTimeCategoryAxis.LabelStyle>
                         </chart:DateTimeCategoryAxis>
                     </chart:SfChart.PrimaryAxis>
@@ -105,7 +105,7 @@
                                 <TextBlock Text="HeikinAshiSeries" FontSize="14" Foreground="white"/>
                             </chart:NumericalAxis.Header>
                             <chart:NumericalAxis.LabelStyle>
-                                <chart:LabelStyle Foreground="White"/>
+                                <chart:LabelStyle Foreground="White" FontSize="12"/>
                             </chart:NumericalAxis.LabelStyle>
                         </chart:NumericalAxis>
                     </chart:SfChart.SecondaryAxis>
@@ -125,7 +125,7 @@
                     <chart:SfChart.PrimaryAxis>
                         <chart:DateTimeCategoryAxis LabelFormat="dd-MMM" ShowTrackBallInfo="True" EdgeLabelsDrawingMode="Shift" ShowGridLines="False" TrackBallLabelTemplate="{StaticResource axisTrackballTemplate}">
                             <chart:DateTimeCategoryAxis.LabelStyle>
-                                <chart:LabelStyle Foreground="White"/>
+                                <chart:LabelStyle Foreground="White" FontSize="12"/>
                             </chart:DateTimeCategoryAxis.LabelStyle>
                         </chart:DateTimeCategoryAxis>
                     </chart:SfChart.PrimaryAxis>
@@ -133,10 +133,10 @@
                     <chart:SfChart.SecondaryAxis>
                         <chart:NumericalAxis ShowTrackBallInfo="True" OpposedPosition="True" ShowGridLines="False">
                             <chart:NumericalAxis.Header>
-                                <TextBlock Text="CandleSeries" FontSize="14" Foreground="white"/>
+                                <TextBlock Text="CandleSeries" Foreground="white"/>
                             </chart:NumericalAxis.Header>
                             <chart:NumericalAxis.LabelStyle>
-                                <chart:LabelStyle Foreground="White"/>
+                                <chart:LabelStyle Foreground="White" FontSize="12"/>
                             </chart:NumericalAxis.LabelStyle>
                         </chart:NumericalAxis>
                     </chart:SfChart.SecondaryAxis>
