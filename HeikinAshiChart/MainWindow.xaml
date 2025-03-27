@@ -92,7 +92,7 @@
                     </chart:SfChart.Header>
 
                     <chart:SfChart.PrimaryAxis>
-                        <chart:DateTimeCategoryAxis LabelFormat="dd-MMM" ShowGridLines="False" EdgeLabelsDrawingMode="Shift">
+                        <chart:DateTimeCategoryAxis LabelFormat="dd-MMM" ShowGridLines="False" EdgeLabelsDrawingMode="Shift" LabelCreated="DateTimeCategoryAxis_LabelCreated">
                             <chart:DateTimeCategoryAxis.LabelStyle>
                                 <chart:LabelStyle Foreground="White" FontSize="12"/>
                             </chart:DateTimeCategoryAxis.LabelStyle>
@@ -123,7 +123,7 @@
                 <chart:SfChart Grid.Row="1" x:Name="candleChart" MouseMove="candleChart_MouseMove">
 
                     <chart:SfChart.PrimaryAxis>
-                        <chart:DateTimeCategoryAxis LabelFormat="dd-MMM" ShowTrackBallInfo="True" EdgeLabelsDrawingMode="Shift" ShowGridLines="False" TrackBallLabelTemplate="{StaticResource axisTrackballTemplate}">
+                        <chart:DateTimeCategoryAxis LabelFormat="dd-MMM" ShowTrackBallInfo="True" EdgeLabelsDrawingMode="Shift" ShowGridLines="False" LabelCreated="DateTimeCategoryAxis_LabelCreated" TrackBallLabelTemplate="{StaticResource axisTrackballTemplate}">
                             <chart:DateTimeCategoryAxis.LabelStyle>
                                 <chart:LabelStyle Foreground="White" FontSize="12"/>
                             </chart:DateTimeCategoryAxis.LabelStyle>

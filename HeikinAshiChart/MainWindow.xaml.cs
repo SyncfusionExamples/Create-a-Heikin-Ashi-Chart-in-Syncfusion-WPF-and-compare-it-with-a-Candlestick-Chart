@@ -65,5 +65,16 @@ namespace HeikinAshiChart
                 }
             }    
         }
+
+        private void DateTimeCategoryAxis_LabelCreated(object sender, LabelCreatedEventArgs e)
+        {
+            DateTimeAxisLabel? dateTimeLabel = e.AxisLabel as DateTimeAxisLabel;
+            bool isTransition = dateTimeLabel!.IsTransition;
+
+            if (isTransition)
+                e.AxisLabel.LabelContent = dateTimeLabel.Position.FromOADate().ToString("MMM-dd");
+            else
+                e.AxisLabel.LabelContent = dateTimeLabel.Position.FromOADate().ToString("dd");
+        }
     }
 }
