@@ -27,7 +27,7 @@ Low = Min(Low, Open, Close)
 
 With these implementations, we will get the output that resembles the following gif.
 
-![Blog-Final-output](https://github.com/user-attachments/assets/3d3d3373-5238-41ec-a54e-fcc7c10c672b)
+![BlogFinalOutput](https://github.com/user-attachments/assets/538edc87-ed6a-496e-878a-30d96ec8b20c)
 
 ## Troubleshooting
 #### Path too long exception
