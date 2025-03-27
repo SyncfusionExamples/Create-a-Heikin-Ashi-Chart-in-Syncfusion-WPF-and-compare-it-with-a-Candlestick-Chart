@@ -7,12 +7,13 @@ namespace HeikinAshiChart
 {
     public class HeikinAshiSeries : CandleSeries
     {
+        #region Field
+
         private ObservableCollection<StockData> _previousCollection;
 
-        public HeikinAshiSeries()
-        {
-            _previousCollection = [];
-        }
+        #endregion
+
+        #region Property
 
         public static readonly DependencyProperty HeikinAshiItemsSourceProperty =
             DependencyProperty.Register(
@@ -26,6 +27,19 @@ namespace HeikinAshiChart
             get { return (ObservableCollection<StockData>)GetValue(HeikinAshiItemsSourceProperty); }
             set { SetValue(HeikinAshiItemsSourceProperty, value); }
         }
+
+        #endregion
+
+        #region Constructor
+
+        public HeikinAshiSeries()
+        {
+            _previousCollection = [];
+        }
+
+        #endregion
+
+        #region Methods
 
         private static void OnHeikinAshiItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -96,5 +110,7 @@ namespace HeikinAshiChart
 
             ItemsSource = heikinAshiData;
         }
+
+        #endregion
     }
 }
