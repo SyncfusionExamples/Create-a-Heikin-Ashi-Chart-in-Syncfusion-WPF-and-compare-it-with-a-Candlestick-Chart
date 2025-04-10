@@ -38,7 +38,7 @@ If you encounter a Path Too Long Exception while building the project:
   3. Rebuild the project.
 
 ## For a step-by-step procedure
-Refer to the blog for detailed instructions and code examples.
+Refer to the blog, [Heikin-Ashi vs. Candlestick Charts: Which Is Better for Market Trend Analysis in WPF](https://www.syncfusion.com/blogs/post/wpf-heikin-ashi-vs-candlestick-charts) for detailed instructions and code examples.
 
 
 
